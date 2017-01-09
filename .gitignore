@@ -5,4 +5,7 @@ Graphics/*
 Wallpaper/*
 Original/*
 Modified/Data/xScripts.rxdata
-Game.exe
+
+src/OneshotLauncher/Debug/*
+src/OneshotLauncher/Release/*
+src/OneshotLauncher/OneshotLauncher.VC.db
