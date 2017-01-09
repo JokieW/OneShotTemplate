@@ -1,6 +1,5 @@
 @echo off
 
-
 rem If the steam autodiscovery fails, replace "" with your path to steam (make sure it's the one that contains OneShot if you have multiple)
 rem ex: SET steam=C:\Program Files (x86)\Steam
 rem or: SET steam=G:\SteamLibrary

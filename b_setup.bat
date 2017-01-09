@@ -34,5 +34,3 @@ del "%local%\Data\Scripts.rxdata"
 mklink /h "%local%\Data\Scripts.rxdata" "%local%\Data\xScripts.rxdata"
 
 @echo 420530> steam_appid.txt
-
-del b_setup.bat
