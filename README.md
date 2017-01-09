@@ -13,16 +13,16 @@ This is an empty project for use to make mods for OneShot. Mode of it is scripts
 
 Now unless you reclone the repository, you won't need to run the setup again.
 
-###Steps after pulling new changes from github
+###Steps to pack changes and pushing changes to github
 
-After you pulled changes, you _must_ run "b_unpack.bat". It will apply the github changes onto you steam copy of OneShot.
+After you've got a bunch of work done, you need to _pack_ them. This will copy only the files you've modified into the `Modified` folder. _**Your changes are only safe once they've been packed!**_.
+To do so, run `b_pack.bat`. If you want to distribute your mod, this is the folder to distribute (Players will override their OneShot folder on Steam with those). This is also the files to uipload to Github if you wish to do so.
+
+###Steps to unpack changes and pulling new changes from github
+
+Unpacking will copy all the files from the `Modified` folder onto your steam OneShot folder. You want to Unpack after changing mod projects, after a steam update, or after you cleaned the steam install.
+To do so, run `b_unpack.bat`. If you just pulled changes from github, those will be in the `Modified` folder, so this will upack those changes aswell.
 Once that is done, you can open the editor or play the game as usual.
-
-###Steps before pushing changes to github
-
-Before you push changes, you _must_ run "b_pack.bat". It will detect all the files that are currently in your Steam folder that are different with the original OneShot files.
-It'll copy those in "Modified", and we only push those files online.
-Unless you know what you're doing, only files from the "Modified" repository should be available to commit.
 
 ###Steps to restore the game to vanilla on steam
 
@@ -33,8 +33,10 @@ Execute `b_restoreSteam.bat`. This will deleate everything on Steam, and then co
 Open Game.rxproj with RPGXP to modify the game. Once you've done a few changes, make sure to save the project, and start the game from Steam.
 No need to do anything else.
 
-If there's any problem, contact me @Jokie on the OneShot Discord.
+Remember however that since you are editing the Steam files directly, you mod is not safe until you pack your files. Steam might decide to update your game and overwrite your work. So be sure to pack every so often.
 
-Version 1.0
+If there's any problem, contact me @Jokie✿ on the OneShot Discord.
+
+Version 1.1
 
 
