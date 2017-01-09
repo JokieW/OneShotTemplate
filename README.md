@@ -30,13 +30,13 @@ Execute `b_restoreSteam.bat`. This will deleate everything on Steam, and then co
 
 ##Usage
 
-Open Game.rxproj with RPGXP to modify the game. Once you've done a few changes, make sure to save the project, and start the game from Steam.
+Open Game.rxproj with RPGXP to modify the game. Once you've done a few changes, make sure to save the project, and hit the play button! It calls a small application I made that will make Steam open it for you.
 No need to do anything else.
 
 Remember however that since you are editing the Steam files directly, you mod is not safe until you pack your files. Steam might decide to update your game and overwrite your work. So be sure to pack every so often.
 
 If there's any problem, contact me @Jokie✿ on the OneShot Discord.
 
-Version 1.1
+Version 1.2
 
 
