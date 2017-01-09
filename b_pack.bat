@@ -1,10 +1,33 @@
 @echo off
 
-SET original=%CD%\Original
+
+rem If the steam autodiscovery fails, replace "" with your path to steam (make sure it's the one that contains OneShot if you have multiple)
+rem ex: SET steam=C:\Program Files (x86)\Steam
+rem or: SET steam=G:\SteamLibrary
+SET steam=
+
+if "%steam%"=="" ( 
+	for /f "tokens=1,2*" %%a in ('reg query "HKEY_CURRENT_USER\Software\Valve\Steam"') do (
+		if %%a==SteamPath (
+			SET steam=%%c
+			goto:steamnamefound
+		)
+	)
+	echo.No steam folder found
+	goto:eof
+)
+
+:steamnamefound
+SET fullsteam=%steam%\steamapps\common\OneShot
+if not exist "%fullsteam%\" (
+	echo.No oneshot folder in that steam library
+	goto:eof
+)
+
 SET modified=%CD%\Modified
 SET local=%CD%
 
-echo.Scanning "%local%" for differences with "%original%"
+echo.Scanning "%local%" for differences with "%fullsteam%"
 
 CALL :dofolder "\Audio\BGM\"
 CALL :dofolder "\Audio\BGS\"
@@ -38,7 +61,7 @@ for /f "delims=" %%a in ('dir /a /b "%local%%~1"') do (CALL :compare %~1 "%%a")
 exit /b 0
 
 :compare
-FC /B "%local%%~1%~2" "%original%%~1%~2" 1>nul 2>nul
+FC /B "%local%%~1%~2" "%fullsteam%%~1%~2" 1>nul 2>nul
 if %errorlevel% == 0 ( exit /b 0 )
 if "%~2"=="Scripts.rxdata" ( exit /b 0 )
 echo.Copying "%local%%~1%~2"

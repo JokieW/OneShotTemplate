@@ -25,20 +25,14 @@ if not exist "%fullsteam%\" (
 
 SET local=%CD%
 
-if exist "%local%\Original\" rd /s /q "%local%\Original\"
+xcopy "%fullsteam%" "%local%" /q /i /e
 
-mkdir "%local%\Original\"
-xcopy "%fullsteam%\Audio" "%local%\Original\Audio" /q /i /e
-xcopy "%fullsteam%\Data" "%local%\Original\Data" /q /i /e
-xcopy "%fullsteam%\Fonts" "%local%\Original\Fonts" /q /i /e
-xcopy "%fullsteam%\Graphics" "%local%\Original\Graphics" /q /i /e
-xcopy "%fullsteam%\Wallpaper" "%local%\Original\Wallpaper" /q /i /e
+ren "steamshim.exe" "Game.exe"
 
-echo.Creating symbolic links
-mklink /j "%local%\Audio" "%fullsteam%\Audio"
-mklink /j "%local%\Data" "%fullsteam%\Data"
-mklink /j "%local%\Fonts" "%fullsteam%\Fonts"
-mklink /j "%local%\Graphics" "%fullsteam%\Graphics"
-mklink /j "%local%\Wallpaper" "%fullsteam%\Wallpaper"
+echo.Creating symbolic link
 del "%local%\Data\Scripts.rxdata"
 mklink /h "%local%\Data\Scripts.rxdata" "%local%\Data\xScripts.rxdata"
+
+@echo 420530> steam_appid.txt
+
+del b_setup.bat
