@@ -64,6 +64,6 @@ FC /B "%local%%~1%~2" "%fullsteam%%~1%~2" 1>nul 2>nul
 if %errorlevel% == 0 ( exit /b 0 )
 if "%~2"=="Scripts.rxdata" ( exit /b 0 )
 echo.Copying "%local%%~1%~2"
-if not exist "%modified%%~1" mkdir %modified%%~1
+if not exist "%modified%%~1" mkdir "%modified%%~1"
 xcopy /y "%local%%~1%~2" "%modified%%~1" >nul
 exit /b 0
